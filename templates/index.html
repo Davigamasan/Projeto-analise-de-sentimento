@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análise de Sentimento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Analisador de Sentimento</h1>
+        <textarea id="textInput" placeholder="Digite seu texto aqui..."></textarea>
+        <button onclick="analyzeText()">Analisar</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function analyzeText() {
+            const text = document.getElementById('textInput').value;
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: text })
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('result');
+
+            if (response.ok) {
+                resultDiv.innerHTML = `
+                    <p><strong>Sentimento:</strong> ${result.sentiment}</p>
+                    <p><strong>Confiança:</strong> ${result.confidence}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `<p class="error">Erro: ${result.error}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

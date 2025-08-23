@@ -1,0 +1,9 @@
+streamlit==1.32.0
+transformers==4.40.0
+torch==2.3.0
+pandas==2.2.2
+plotly==5.22.0
+accelerate==0.30.1
+safetensors==0.4.3
+protobuf==4.25.3
+numpy==1.26.4

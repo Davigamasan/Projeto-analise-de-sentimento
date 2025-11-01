@@ -27,16 +27,6 @@ Flask processa a requisição e usa o modelo para análise
 
 Resultado é retornado e exibido na página
 
-📁 Estrutura do Projeto
-text
-projeto-analise-sentimento/
-├── app.py                 # Aplicação Flask principal
-├── templates/
-│   └── index.html        # Interface do usuário
-├── static/
-│   └── style.css         # Estilos CSS (opcional)
-├── requirements.txt      # Dependências do projeto
-└── README.md            # Este arquivo
 🔧 Tecnologias Utilizadas
 Backend: Flask
 
